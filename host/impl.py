@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 from pluggy import HookimplMarker
 
 hookimpl = HookimplMarker('fp')
@@ -15,6 +15,11 @@ def bp_index():
 @bp.route('/me')
 def me():
     return 'hello me'
+
+
+@bp.route('/template')
+def template():
+    return render_template("host.html")
 
 
 @hookimpl
